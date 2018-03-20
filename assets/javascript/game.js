@@ -58,21 +58,33 @@ $(".crystals").append(whitecrystals);
 //}
 // on click funtion
 
-$(document).on('click', ".whitecrystals", function () {
-    var num = parseInt($(this).attr('data-random'));
-    num = parseInt(num);
-    counter += num;
-
-    $("#counter").text(counter);
+$(".whitecrystals").on("click", function() {
+    crystals = crystals + (whitecrystals);
+    $("#crystalsbox").text(whitecrystals);
+    if (whitecrystals === randomNumber) {
+      wins++;
+    } else if (whitecrystals > randomNumber) {
+      lost++;
+    }
     console.log(whitecrystals);
-});        
+  });
+
+//$(document).on('click', ".whitecrystals", function () {
+  //  var num = parseInt($(this).attr('data-random'));
+   // num = parseInt(num);
+   // counter += num;
+
+  //  $("#counter").text(counter);
+  //  console.log(whitecrystals);
+//});
+
 //red crystals
 
 for(var i=0; i < 0; i++) {
     var redcrystals = Math.floor(Math.random() * 12) + 1;
     console.log(redcrystals);
     
-    var redcrystals = $("#crystals");
+    var redcrystals = $("#crystalsbox");
         crystals.attr({
             "class": 'redcrystal',
             "data-random": redcrystals
@@ -87,15 +99,26 @@ for(var i=0; i < 0; i++) {
     
     
     // on click funtion
-    
-   $(document).on('click', ".redcrystals", function () {
-       var num = parseInt($(this).attr('data-random'));
-       num = parseInt(num);
-       counter += num;
 
-       $("#counter").text(counter);
-       console.log(redcrystals);
-   });
+    $(".redcrystals").on("click", function() {
+        crystals = crystals + (redcrystals);
+        $("#crystalsbox").text(redcrystals);
+        if (redcrystals === randomNumber) {
+          wins++;
+        } else if (redcrystals > randomNumber) {
+          lost++;
+        }
+        console.log(redcrystals);
+      });
+    
+  // $(document).on('click', ".redcrystals", function () {
+    //   var num = parseInt($(this).attr('data-random'));
+     //  num = parseInt(num);
+     //  counter += num;
+
+    //   $("#counter").text(counter);
+    //   console.log(redcrystals);
+//   });
 
        // purple crystal
        for(var i=0; i < 0; i++) {
@@ -116,17 +139,28 @@ for(var i=0; i < 0; i++) {
       
         
       
-        // on click funtion
+    // on click funtion
+    
+    $(".purplecrystals").on("click", function() {
+        crystals = crystals + (purplecrystals);
+        $("#crystalsbox").text(purplecrystals);
+        if (purplecrystals === randomNumber) {
+          wins++;
+        } else if (purplecrystals > randomNumber) {
+          lost++;
+        }
+        console.log(purplecrystals);
+      });
         
-    $(document).on('click', ".purplecrystals", function (){
-            var num = parseInt($(this).attr('data-random'));
-            num = parseInt(num);
-            counter += num;
+   // $(document).on('click', ".purplecrystals", function (){
+         //   var num = parseInt($(this).attr('data-random'));
+          //  num = parseInt(num);
+          //  counter += num;
 
-    $("#counter").text(counter);
+  //  $("#counter").text(counter);
 
-    console.log(purplecrystals);
-        });
+   // console.log(purplecrystals);
+     //   });
 
     // blue crystals
     for(var i=0; i < 0; i++) {
@@ -147,16 +181,28 @@ for(var i=0; i < 0; i++) {
         
       
         // on click funtion
+
         
-        $(document).on('click', ".bluecrystals", function () {
-            var num = parseInt($(this).attr('data-random'));
-            num = parseInt(num);
-            counter += num;
-
-        $("#counter").text(counter)
-        });
-
+    $(".bluecrystals").on("click", function() {
+        crystals = crystals + (bluecrystals);
+        $("#crystalsbox").text(bluecrystals);
+        if (bluecrystals === randomNumber) {
+          wins++;
+        } else if (bluecrystals > randomNumber) {
+          lost++;
+        }
         console.log(bluecrystals);
+      });
+        
+      //  $(document).on('click', ".bluecrystals", function () {
+         //   var num = parseInt($(this).attr('data-random'));
+          //  num = parseInt(num);
+           // counter += num;
+
+       // $("#counter").text(counter)
+      //  });
+
+        
 
     if(counter > randomNumber){
 
