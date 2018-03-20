@@ -87,7 +87,37 @@ body {
 
 }
 
-.crystals {
+.whitecrystals {
+    width: 75px;
+    height: 75px;
+    margin-top: 10px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    
+}
+
+.purplecrystals {
+    width: 75px;
+    height: 75px;
+    margin-top: 10px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    
+}
+
+.bluecrystals {
+    width: 75px;
+    height: 75px;
+    margin-top: 10px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    
+}
+
+.redcrystals {
     width: 75px;
     height: 75px;
     margin-top: 10px;
