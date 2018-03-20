@@ -74,7 +74,7 @@ body {
 
 }
 
-#crystals {
+#crystalsbox {
     width: 100%;
     max-width: 400px;
     float: left;
@@ -87,7 +87,7 @@ body {
 
 }
 
-.whitecrystal {
+.crystals {
     width: 75px;
     height: 75px;
     margin-top: 10px;
@@ -97,37 +97,8 @@ body {
     
 }
 
-.purplecrystal {
-    width: 75px;
-    height: 75px;
-    margin-top: 10px;
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    
-}
 
-.bluecrystal {
-    width: 75px;
-    height: 75px;
-    margin-top: 10px;
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    
-}
-
-.redcrystal {
-    width: 75px;
-    height: 75px;
-    margin-top: 10px;
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 10px;
-    
-}
-
-#score {
+#counter {
     font-size: 25px;
     text-align: center;
     width: 100%;
