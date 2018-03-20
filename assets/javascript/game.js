@@ -63,7 +63,7 @@ $(document).on('click', ".whitecrystals", function () {
     num = parseInt(num);
     counter += num;
 
-    $("#counter").html(counter);
+    $("#counter").text(counter);
     console.log(whitecrystals);
 });        
 //red crystals
@@ -93,7 +93,7 @@ for(var i=0; i < 0; i++) {
        num = parseInt(num);
        counter += num;
 
-       $("#counter").html(counter);
+       $("#counter").text(counter);
        console.log(redcrystals);
    });
 
@@ -123,7 +123,7 @@ for(var i=0; i < 0; i++) {
             num = parseInt(num);
             counter += num;
 
-    $("#counter").html(counter);
+    $("#counter").text(counter);
 
     console.log(purplecrystals);
         });
@@ -153,7 +153,7 @@ for(var i=0; i < 0; i++) {
             num = parseInt(num);
             counter += num;
 
-        $("#counter").html(counter)
+        $("#counter").text(counter)
         });
 
         console.log(bluecrystals);
