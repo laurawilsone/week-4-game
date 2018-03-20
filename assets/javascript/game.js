@@ -1,25 +1,27 @@
 
 // generating a random number
 
-
-var randomNumber
-
-var randomNumber = Math.floor(Math.random( ) * 120) + 19;
-$('#number-to-guess').text(randomNumber);
-console.log(randomNumber);
-
 // generating a random number and assigning it to each crystal
+var randomNumber
 var crystals;
 var counter = 0;
 var wins = 0;
 var losses = 0;
 //var previous = 0;
 
+//var resetAndStart = function () {
+
+  //  $(".crystals").empty();
+
+var randomNumber = Math.floor(Math.random( ) * 120) + 19;
+$('#number-to-guess').text(randomNumber);
+console.log(randomNumber);
+
 
 //create a for loop to connect the crystals to their own random number
-var crystals = {red:{color:"red", value: 0}}
+var crystals = [ 0, 1, 2, 3]
 for(var i=0; i < 4; i++) {
-crystals = Math.floor(Math.random() * 12) + 1;
+var crystals = Math.floor(Math.random() * 12) + 1;
 console.log(crystals);
 
 var crystals = $("#crystals");
@@ -28,13 +30,14 @@ var crystals = $("#crystals");
         "data-random": crystals
     });
 
-    crystals.html(crystals);
+    crystals.text(crystals);
 $(".crystals").append(crystals);
 
 }
 
-$("#counter").html("Your Total Score: ", counter);
+$("#counter").text(counter);
 
+//}
 // on click funtion
 
 $(document).on('click', ".crystals", function () {
@@ -42,7 +45,7 @@ $(document).on('click', ".crystals", function () {
     counter += num;
 
 
-    $("#counter").html("Your Total Score: ", counter);
+    $("#counter").text(counter);
 
     console.log(crystals);
 
@@ -50,21 +53,22 @@ $(document).on('click', ".crystals", function () {
 
         lost++;
 
-        $("#losses").html("You lost: ", lost);
+        $("#losses").text(losses);
 
         counter = 0;
 
-        resetAndRestart();
+      //  resetAndStart();
         }
+
     else if (counter === randomNumber){
 
         win++;
 
-        $("#wins").html("You win: ", win);
+        $("#wins").text(wins);
 
         counter = 0;
 
-        resetAndRestart();
+      //  resetAndStart();
     }
 });
 
