@@ -1,251 +1,127 @@
-// generating a random number
 
-// generating a random number and assigning it to each crystal
+var crystal = {
+  white:
+  {
+    name: "White",
+    value: 0
+  },
+  purple:
+  {
+    name: "Purple",
+    value: 0
+  },
+  blue:
+  {
+    name: "Blue",
+    value: 0
+  },
+  red:
+  {
+    name: "Red",
+    value: 0
+  }
+};
 
-var crystals;
-var counter = 0;
-var wins = 0;
-var losses = 0;
-//var previous = 0;
+// Scores
+var currentScore = 0;
+var numberGuess = 0;
 
-//var resetAndStart = function () {
+// Wins and Losses
+var winCount = 0;
+var lossCount = 0;
 
-  //  $(".crystals").empty();
+// Random Number
+var getRandom = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
-var randomNumber = Math.floor(Math.random( ) * 120) + 19;
-$('#number-to-guess').text(randomNumber);
-console.log(randomNumber);
+// Starts the Game
+var startGame = function() {
 
+  currentScore = 0;
+  numberGuess = getRandom(19, 120);
 
-//create a for loop to connect the crystals to their own random number
-var crystals = {
-    red:
-    {
-      red: "Red",
-      value: 0
-    },
-    white: 
-    {
-      name: "White",
-      value: 0
-    },
-    purple:
-    {
-      name: "Purple",
-      value: 0
-    },
-    blue:
-    {
-      name: "Blue",
-      value: 0
-    }
-  };
-for(var i=0; i < 0; i++) {
-var whitecrystals = Math.floor(Math.random() * 12) + 1;
-console.log(whitecrystals);
+  // Crystal Values
+  crystal.white.value = getRandom(1, 12);
+  crystal.purple.value = getRandom(1, 12);
+  crystal.blue.value = getRandom(1, 12);
+  crystal.red.value = getRandom(1, 12);
 
-var whitecrystals = $("#crystals");
-    crystals.attr({
-        "class": 'whitecrystal',
-        "data-random": whitecrystals
-    });
+  // HTML 
+  $("#score").text(currentScore);
+  $("#number-to-guess").text(numberGuess);
 
-   // crystals.text(crystals);
-$(".crystals").append(whitecrystals);
+  
+  console.log("numer-to-guess: " + numberGuess);
+  console.log("White: " + crystal.white.value + " | Purple: " + crystal.purple.value + " | Blue: " + crystal.blue.value +
+    " | Red: " + crystal.red.value);
+ 
+};
 
-}
+// Check if User Won or Lost and Reset the Game
+var checkWin = function() {
 
-//}
-// on click funtion
+  // Check if currentScore is larger than targetScore
+  if (currentScore > numberGuess) {
+    alert("You lost!");
+    console.log("You Lost");
 
-$(".whitecrystals").on("click", function() {
-    crystals = crystals + (whitecrystals);
-    $("#crystalsbox").text(whitecrystals);
-    if (whitecrystals === randomNumber) {
-      wins++;
-    } else if (whitecrystals > randomNumber) {
-      lost++;
-    }
-    console.log(whitecrystals);
-  });
+    // Add to Loss Counter
+    lossCount++;
 
-//$(document).on('click', ".whitecrystals", function () {
-  //  var num = parseInt($(this).attr('data-random'));
-   // num = parseInt(num);
-   // counter += num;
+    // Change Loss Count HTML
+    $("#Losses").text(lossCount);
 
-  //  $("#counter").text(counter);
-  //  console.log(whitecrystals);
-//});
+    // Restart the game
+    startGame();
+  }
 
-//red crystals
+  else if (currentScore === numberGuess) {
+    alert("You Won!");
+    console.log("You Won!");
 
-for(var i=0; i < 0; i++) {
-    var redcrystals = Math.floor(Math.random() * 12) + 1;
-    console.log(redcrystals);
-    
-    var redcrystals = $("#crystalsbox");
-        crystals.attr({
-            "class": 'redcrystal',
-            "data-random": redcrystals
-        });
-    
-        //crystals.text(redcrystals);
-    $(".redcrystals").append(redcrystals);
-    
-    }
-    
-    
-    
-    
-    // on click funtion
+    // Add to the Win Counter
+    winCount++;
 
-    $(".redcrystals").on("click", function() {
-        crystals = crystals + (redcrystals);
-        $("#crystalsbox").text(redcrystals);
-        if (redcrystals === randomNumber) {
-          wins++;
-        } else if (redcrystals > randomNumber) {
-          lost++;
-        }
-        console.log(redcrystals);
-      });
-    
-  // $(document).on('click', ".redcrystals", function () {
-    //   var num = parseInt($(this).attr('data-random'));
-     //  num = parseInt(num);
-     //  counter += num;
+    // Change Win Count HTML
+    $("#Wins").text(winCount);
 
-    //   $("#counter").text(counter);
-    //   console.log(redcrystals);
-//   });
+    // Restart the game
+    startGame();
+  }
 
-       // purple crystal
-       for(var i=0; i < 0; i++) {
-        var purplecrystals = Math.floor(Math.random() * 12) + 1;
-        console.log(purplecrystals);
-        
-        var purplecrystals = $("#crystals");
-            crystals.attr({
-                "class": 'purplecrystal',
-                "data-random": purplecrystals
-            });
-        
-           // crystals.text(crystals);
-        $(".purplecrystals").append(purplecrystals);
-        
-        }
-        
-      
-        
-      
-    // on click funtion
-    
-    $(".purplecrystals").on("click", function() {
-        crystals = crystals + (purplecrystals);
-        $("#crystalsbox").text(purplecrystals);
-        if (purplecrystals === randomNumber) {
-          wins++;
-        } else if (purplecrystals > randomNumber) {
-          lost++;
-        }
-        console.log(purplecrystals);
-      });
-        
-   // $(document).on('click', ".purplecrystals", function (){
-         //   var num = parseInt($(this).attr('data-random'));
-          //  num = parseInt(num);
-          //  counter += num;
+};
 
-  //  $("#counter").text(counter);
+// click response
+var addValues = function(clickedCrystal) {
 
-   // console.log(purplecrystals);
-     //   });
+  // Change currentScore
+  currentScore += clickedCrystal.value;
 
-    // blue crystals
-    for(var i=0; i < 0; i++) {
-        var bluecrystals = Math.floor(Math.random() * 12) + 1;
-        console.log(bluecrystals);
-        
-        var bluecrystals = $("#crystals");
-            crystals.attr({
-                "class": 'bluecrystal',
-                "data-random": bluecrystals
-            });
-        
-           // crystals.text(crystals);
-        $(".crystals").append(bluecrystals);
-        
-        }
-        
-        
-      
-        // on click funtion
+  // score in HTML
+  $("#score").text(currentScore);
 
-        
-    $(".bluecrystals").on("click", function() {
-        crystals = crystals + (bluecrystals);
-        $("#crystalsbox").text(bluecrystals);
-        if (bluecrystals === randomNumber) {
-          wins++;
-        } else if (bluecrystals > randomNumber) {
-          lost++;
-        }
-        console.log(bluecrystals);
-      });
-        
-      //  $(document).on('click', ".bluecrystals", function () {
-         //   var num = parseInt($(this).attr('data-random'));
-          //  num = parseInt(num);
-           // counter += num;
+  checkWin();
 
-       // $("#counter").text(counter)
-      //  });
-
-        
-
-    if(counter > randomNumber){
-
-        lost++;
-
-        $("#losses").text(losses);
-
-        counter = 0;
-
-      //  resetAndStart();
-        }
-
-    else if (counter === randomNumber){
-
-        win++;
-
-        $("#wins").text(wins);
-
-        counter = 0;
-
-      //  resetAndStart();
-    }
+  console.log("Your total score is: " + currentScore);
+};
 
 
+// Start on click function
+startGame();
 
+$("#white").click(function() {
+  addValues(crystal.white);
+});
 
+$("#purple").click(function() {
+  addValues(crystal.purple);
+});
 
+$("#blue").click(function() {
+  addValues(crystal.blue);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$("#red").click(function() {
+  addValues(crystal.red);
+});
