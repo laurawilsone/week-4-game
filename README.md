@@ -9,6 +9,8 @@ If you dont bust you win the game! If you do well you get another shot.
 
 Enjoy!
 
+https://laurawilsone.github.io/week-4-game/
+
 # Built With
 - CSS
 - HTML
